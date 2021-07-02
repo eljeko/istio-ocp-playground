@@ -1,10 +1,12 @@
 # Setup the lab
 
-oc new-project beservices
-oc new-project frontend
+Create the two projects:
+
+    oc new-project beservices
+    oc new-project frontend
 
 # Setup beservices
 
-Follow the README.md in the foder:
+Follow the [README.md](../../tree/main/setup-beservices/README.md) in ```setup-beservices``` folder:
 
-    setup-beservices
+# Setup frontend
