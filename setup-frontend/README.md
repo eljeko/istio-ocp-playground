@@ -1,14 +1,10 @@
 # Install helm chart
 
-Install the frontend app AFTER the beservices
+Install the frontend app AFTER the [beservices](../../main/setup-beservices/)
 
-    helm install frontend-client-chart frontend-client-chart
+    helm install frontend-client-chart frontend-client-chart -n frontend
 
-**Note:** `Host: *.foo.svc.cluster.local` configured in the file 
-limits the matches to services in foo namespace only.
-
-The you can test the setup:
-
+## Testing the setup
 
 This call should fail:
 
