@@ -10,3 +10,5 @@ Create the two projects:
 Follow the [README.md](../../tree/main/setup-beservices/README.md) in ```setup-beservices``` folder:
 
 # Setup frontend
+
+Follow the [README.md](../../tree/main/setup-frontend/README.md) in ```setup-frontend``` folder:
