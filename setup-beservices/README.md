@@ -1,9 +1,13 @@
 ## Install the charts
 
 This chart contains the buildconfig, imagestream
+
+    cd <PATH_TO>/simple-java-helm-chart/java-build-chart
     helm install java-build-chart java-build-chart
 
 This chart contains the deployment, service, and **istio** manifests
+
+    cd <PATH_TO>/simple-java-helm-chart/java-build-chart
     helm install java-simple-chart java-simple-chart
 
 ### Istio configuration
