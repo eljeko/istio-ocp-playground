@@ -3,12 +3,12 @@
 This chart contains the buildconfig, imagestream
 
     cd <PATH_TO>/simple-java-helm-chart/java-build-chart
-    helm install java-build-chart java-build-chart
+    helm install java-build-chart java-build-chart -n beservices
 
 This chart contains the deployment, service, and **istio** manifests
 
     cd <PATH_TO>/simple-java-helm-chart/java-build-chart
-    helm install java-simple-chart java-simple-chart
+    helm install java-simple-chart java-simple-chart -n beservices
 
 ### Istio configuration
 
@@ -28,4 +28,4 @@ build the app:
 
 Start the oc build:
   
-    oc start-build springboot-app-build --from-file target/bookstore-books-rest-api-1.0.jar
+    oc start-build springboot-app-build --from-file target/bookstore-books-rest-api-1.0.jar -n beservices
