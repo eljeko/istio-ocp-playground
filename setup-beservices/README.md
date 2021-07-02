@@ -11,8 +11,8 @@ This chart contains the deployment, service, and **istio** manifests
 The istio setup consists of:
 
 1. An [AuthorizationPolicy](../../main/setup-beservices/simple-java-helm-chart/java-simple-chart/templates/istio/allow-nothing.yaml) with ```allow-nothing```
-2. An [AuthorizationPolicy](../../tree/main/setup-beservices/simple-java-helm-chart/java-simple-chart/templates/istio/authorization-caller.yaml) that allow only a specific service account from ```frontend``` project to call the service in ```beservice``` project and allow all call from ```beservice``` project
-3. A [PeerAuthentication](../../tree/main/setup-beservices/simple-java-helm-chart/java-simple-chart/templates/istio/istio-peer-auth.yaml) with ```mtls mode STRICT```
+2. An [AuthorizationPolicy](../../main/setup-beservices/simple-java-helm-chart/java-simple-chart/templates/istio/authorization-caller.yaml) that allow only a specific service account from ```frontend``` project to call the service in ```beservice``` project and allow all call from ```beservice``` project
+3. A [PeerAuthentication](../../main/setup-beservices/simple-java-helm-chart/java-simple-chart/templates/istio/istio-peer-auth.yaml) with ```mtls mode STRICT```
 
 ## Build and deploy the ReST app
 
