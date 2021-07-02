@@ -1,19 +1,21 @@
 # Install helm chart
 
-Install the frontend app AFTER the [beservices](../../main/setup-beservices/)
+Install the frontend app AFTER installing [beservices](../../main/setup-beservices/)
 
     helm install frontend-client-chart frontend-client-chart -n frontend
 
 ## Testing the setup
 
-This call should fail:
+The setup allows only the ```frontendclient service account``` from ```frontend``` project to call the springboot-app services in the ```beservices``` project.
+
+This call fails:
 
     oc exec $(oc get pod -l app=anyclient -n frontend -o jsonpath={.items..metadata.name}) -c anyclient -n frontend -- curl http://springboot-app.beservices:8080/books -s -o /dev/null --connect-timeout 2 -w "%{http_code}\n"
 
-This call should work:
+The call cames from a pod service account that is **not allowed** and returns 403
+
+This call works:
 
     oc exec $(oc get pod -l app=frontendclient -n frontend -o jsonpath={.items..metadata.name}) -c frontendclient -n frontend -- curl http://springboot-app.beservices:8080/books -s -o /dev/null --connect-timeout 2 -w "%{http_code}\n"
 
-for from in "foo" "bar" "legacy"; do for to in "foo" "bar" "legacy"; do oc exec $(oc get pod -l app=sleep -n ${from} -o jsonpath={.items..metadata.name}) -c sleep -n ${from} -- curl "http://httpbin.${to}:8000/ip" --connect-timeout 2 -s -o /dev/null -w "sleep.${from} to httpbin.${to}: %{http_code}\n"; done; done
-
-
+The call cames from a pod service account that is **allowed** and returns 200
