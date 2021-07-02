@@ -1,0 +1,19 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+ name: {{ .Values.microservice.name }}-rule
+ namespace: {{ .Release.Namespace }}
+spec:
+ selector:
+   matchLabels:
+     app: {{ .Values.microservice.name }}
+ action: ALLOW
+ rules:
+ - from:
+   - source:
+       principals: ["cluster.local/ns/{{ .Values.istio.allowednamespace.name }}/sa/{{ .Values.istio.allowednamespace.serviceaccount }}"]
+   - source:
+       namespaces: ["{{ .Release.Namespace }}"]       
+   to:
+   - operation:
+       methods: ["GET"]
